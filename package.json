@@ -1,0 +1,27 @@
+{
+  "name": "gulp-polylint",
+  "version": "1.0.0",
+  "description": "Polylint plugin for gulp",
+  "license": "MIT",
+  "repository": "ajjohnston/gulp-polylint",
+  "author": "Andrew Johnston <andrewjacobjohnston@gmail.com>",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "chalk": "^1.1.1",
+    "extend": "^3.0.0",
+    "gulp-util": "^3.0.7",
+    "log-symbols": "^1.0.2",
+    "plur": "^2.1.2",
+    "polylint": "^2.10.0",
+    "through2": "^2.0.1"
+  },
+  "keywords": [
+    "gulp",
+    "gulpplugin",
+    "polylint",
+    "polymer"
+  ]
+}
