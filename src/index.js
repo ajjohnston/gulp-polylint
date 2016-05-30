@@ -50,7 +50,7 @@ function byErrorLine (a, b) {
 function tapPolylint (action) {
   return function (opts) {
     opts = opts || {};
-    var ignoreWarnings = opts.ignoreWarnings !== false;
+    var ignoreWarnings = opts.ignoreWarnings || false;
     return tap(function (file) {
       if (!file.polylint) {
         return;

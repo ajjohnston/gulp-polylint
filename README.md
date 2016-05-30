@@ -36,6 +36,13 @@ gulp.task('polylint', function() {
     .pipe(jshint.reporter("fail"));
 });
 ```
+The `combineWithJshintResults` function can also be called with a configuration object:
+```
+...
+    .pipe(polylint.combineWithJshintResults({ ignoreWarnings: true }))
+...
+```
+Currently the only option is `ignoreWarnings` which defaults to false. If set to true, polylint warnings (not fatal) will be skipped in the process.
 
 ## License
 MIT © Andrew Johnston
