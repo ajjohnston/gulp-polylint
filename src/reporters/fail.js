@@ -11,28 +11,19 @@ module.exports = function (opts) {
   // @type false|[]files - files that need to be passed downstream on flush
   var buffer = opts.buffer !== false ? [] : false;
 
-  var errors = false;
-  var warnings = false;
-
   return through2({ objectMode: true }, function (file, enc, done) {
 
     if (file.polylint && file.polylint.results && file.polylint.results.length) {
-      file.polylint.results.forEach(function (result) {
-        if (result.fatal) {
-          errors = true;
-        } else {
-          warnings = true;
-        }
-      });
-      (fails = fails || []).push(path.relative(process.cwd(), file.path));
+      if (!opts.ignoreWarnings || file.polylint.results.some(function (result) { return result.fatal; })) {
+				(fails = fails || []).push(path.relative(process.cwd(), file.path));
+			}
     }
 
     (buffer || this).push(file);
 
     done();
   }, function (done) {
-    var failOnWarning = !opts.ignoreWarnings && warnings;
-    if (fails && (errors || failOnWarning)) {
+    if (fails) {
       this.emit('error', new PluginError('gulp-polylint', {
         message: 'Polylint failed for: ' + fails.join(', '),
         showStack: false
