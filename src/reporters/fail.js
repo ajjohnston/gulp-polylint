@@ -15,8 +15,8 @@ module.exports = function (opts) {
 
     if (file.polylint && file.polylint.results && file.polylint.results.length) {
       if (!opts.ignoreWarnings || file.polylint.results.some(function (result) { return result.fatal; })) {
-				(fails = fails || []).push(path.relative(process.cwd(), file.path));
-			}
+        (fails = fails || []).push(path.relative(process.cwd(), file.path));
+      }
     }
 
     (buffer || this).push(file);
