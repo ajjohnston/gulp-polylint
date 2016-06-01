@@ -29,11 +29,11 @@ var jshint   = require('gulp-jshint');
 gulp.task('polylint', function() {
   return gulp.src('app/elements/**/*.html')
     .pipe(polylint())
-    .pipe(jshint.extract("auto"))
+    .pipe(jshint.extract('auto'))
     .pipe(jshint())
     .pipe(polylint.combineWithJshintResults())
-    .pipe(jshint.reporter("jshint-stylish"))
-    .pipe(jshint.reporter("fail"));
+    .pipe(jshint.reporter('jshint-stylish'))
+    .pipe(jshint.reporter('fail'));
 });
 ```
 The `combineWithJshintResults` function can also be called with a configuration object:
