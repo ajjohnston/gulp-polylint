@@ -40,6 +40,7 @@ var polylintPlugin = function (opts) {
 
 polylintPlugin.reporter = reporters;
 polylintPlugin.reporter.stylishlike = require('./reporters/stylishlike');
+polylintPlugin.reporter.fail = require('./reporters/fail');
 
 module.exports = polylintPlugin;
 
