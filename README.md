@@ -1,4 +1,4 @@
-# gulp-polylint
+# gulp-polylint [![npm version](https://badge.fury.io/js/gulp-polylint.svg)](https://badge.fury.io/js/gulp-polylint)
 
 Polylint plugin for gulp
 
