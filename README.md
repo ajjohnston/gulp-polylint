@@ -55,7 +55,18 @@ The `combineWithJshintResults` function can also be called with a configuration 
     .pipe(polylint.combineWithJshintResults({ ignoreWarnings: true }))
 ...
 ```
+
 Currently the only option is `ignoreWarnings` which defaults to false. If set to true, polylint warnings (not fatal) will be skipped in the process.
+
+
+The `polylint` function can also be called with a configuration object:
+```
+...
+    .pipe(polylint({ noRecursion: true }))
+...
+```
+Currently the only option is `noRecursion` which defaults to false. If set to true, polylint will only report errors on specified input files, not from their dependencies.
+
 
 ## License
 MIT © Andrew Johnston
