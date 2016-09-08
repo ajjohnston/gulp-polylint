@@ -1,6 +1,6 @@
 {
   "name": "gulp-polylint",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Polylint plugin for gulp",
   "license": "MIT",
   "repository": "ajjohnston/gulp-polylint",
