@@ -27,14 +27,23 @@ var polylintPlugin = function (opts) {
 
     opts = extend(defaults, opts);
 
-    polylint(filename, opts)
-      .then(function (results) {
-        file.polylint = {
-          results: results
-        };
+      polylint(filename, opts)
+          .then(function (results) {
+              // option noRecursion like in polylint cli
+              var filtered = results.filter(function (warning) {
+                  if (opts.noRecursion && filename !== warning.filename) {
+                      return false
+                  } else {
+                      return true;
+                  }
+              });
 
-        return cb(null, file);
-      });
+              file.polylint = {
+                  results: filtered
+              };
+
+              return cb(null, file);
+          });
   });
 };
 
@@ -79,7 +88,7 @@ function toJshint (file, ignoreWarnings) {
       });
     }
   });
-  
+
   return results;
 }
 
